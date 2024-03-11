@@ -1,0 +1,1132 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/9/2024 8:33:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-85POON7"
+  DTS:CreatorName="AzureAD\CarolSánchez"
+  DTS:DTSID="{B7916765-A4F6-4C78-BCB8-1298C05D111B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="LoadSales 1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{41BCC5A4-012E-48C2-9FAB-4785B69C5E47}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-85POON7.load_vg_sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6E234C0D-FB56-43A5-8F68-A3997F4BE070}"
+      DTS:ObjectName="DESKTOP-85POON7.load_vg_sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-85POON7;Initial Catalog=load_vg_sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6E234C0D-FB56-43A5-8F68-A3997F4BE070}DESKTOP-85POON7.load_vg_sales;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-85POON7.vg_sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0E08B222-6D0C-4C43-9FD9-D29FD1077474}"
+      DTS:ObjectName="DESKTOP-85POON7.vg_sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-85POON7;Initial Catalog=vg_sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{0E08B222-6D0C-4C43-9FD9-D29FD1077474}DESKTOP-85POON7.vg_sales;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-85POON7.vg_sales_metadata]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{59230F53-BC32-4A3A-A17A-5E874ABB5E41}"
+      DTS:ObjectName="DESKTOP-85POON7.vg_sales_metadata">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-85POON7;Initial Catalog=vg_sales_metadata;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{59230F53-BC32-4A3A-A17A-5E874ABB5E41}DESKTOP-85POON7.vg_sales_metadata;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{96B254A0-EBB0-4EF8-BFA3-381FD1BAC24B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLCountRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6284568C-7BFB-4949-916E-E2289C6DABCA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLExecution">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load sales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{4CABACAD-9348-4A3D-A51D-66A0B14730B3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load sales">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Load sales.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{42A6CE69-E2B4-4774-9202-EEA191F87C6A}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="La propiedad de propagación del evento"
+              DTS:DTSID="{F35C17D6-97D4-4AD3-B6A8-170EAFB25756}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Load sales.EventHandlers[OnPostExecute]\CountRow"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{4E6B975A-30C1-4B71-B754-8F061C398FC0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="CountRow"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{59230F53-BC32-4A3A-A17A-5E874ABB5E41}"
+                  SQLTask:SqlStatementSource="UPDATE ETLExecution &#xA;SET ETLCountRows=?&#xA;WHERE ID=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::ETLCountRows"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::ETLExecution"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\Load sales.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{AB68C764-9881-4BB0-BD83-036918E86082}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="La propiedad de propagación del evento"
+              DTS:DTSID="{08473471-C827-4B4D-BC93-EF220C50DAC9}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Load sales.EventHandlers[OnPreExecute]\get_id_vg_sales_metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{6482F93B-2569-4069-9E2B-0B5436439A81}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="get_id_vg_sales_metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{59230F53-BC32-4A3A-A17A-5E874ABB5E41}"
+                  SQLTask:SqlStatementSource="SELECT        TOP (1) ID&#xA;FROM            ETLExecution&#xA;WHERE        (PackageName = ?)&#xA;ORDER BY ID DESC" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Load sales.EventHandlers[OnPreExecute]\insert_vg_sales_metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{7F952588-3C55-4E86-97D3-F24F60503E3F}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="insert_vg_sales_metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{59230F53-BC32-4A3A-A17A-5E874ABB5E41}"
+                  SQLTask:SqlStatementSource="INSERT INTO ETLExecution (UserName,MachineName,PackageName,ETLLoad)&#xA;VALUES (?,?,?,GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::UserName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::MachineName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Load sales.EventHandlers[OnPreExecute].PrecedenceConstraints[Restricción]"
+              DTS:CreationName=""
+              DTS:DTSID="{A86CDE28-F663-414F-805F-E5110B3961D6}"
+              DTS:From="Package\Load sales.EventHandlers[OnPreExecute]\insert_vg_sales_metadata"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Restricción"
+              DTS:To="Package\Load sales.EventHandlers[OnPreExecute]\get_id_vg_sales_metadata" />
+          </DTS:PrecedenceConstraints>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load sales\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load sales\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Load sales\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada].Columns[ETLLoad]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada].Columns[ETLLoad]"
+                      name="ETLLoad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada].Columns[ETLExecution]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada].Columns[ETLExecution]"
+                      name="ETLExecution"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[User::ETLExecution]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::ETLExecution]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load sales\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Load sales\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load sales\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load sales\Load_vg_sales_sales"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Load_vg_sales_sales"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load sales\Load_vg_sales_sales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-85POON7.load_vg_sales]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-85POON7.load_vg_sales]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[ETLLoad]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETLLoad"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[EtlLoad]"
+                      lineageId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada].Columns[ETLLoad]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[TotalSales]"
+                      cachedDataType="numeric"
+                      cachedName="TotalSales"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalSales]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[TotalSales]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[RemainingSales]"
+                      cachedDataType="numeric"
+                      cachedName="RemainingSales"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[RemainingSales]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[RemainingSales]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[YearOfPublication]"
+                      cachedDataType="i4"
+                      cachedName="YearOfPublication"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[YearOfPublication]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[YearOfPublication]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[SalesNorthAmerica]"
+                      cachedDataType="numeric"
+                      cachedName="SalesNorthAmerica"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesNorthAmerica]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesNorthAmerica]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[SalesEurope]"
+                      cachedDataType="numeric"
+                      cachedName="SalesEurope"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesEurope]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesEurope]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[SalesJapan]"
+                      cachedDataType="numeric"
+                      cachedName="SalesJapan"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesJapan]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesJapan]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[IdVideoGame]"
+                      cachedDataType="i4"
+                      cachedName="IdVideoGame"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdVideoGame]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdVideoGame]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[IdGenre]"
+                      cachedDataType="i4"
+                      cachedName="IdGenre"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdGenre]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdGenre]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[IdPublisher]"
+                      cachedDataType="i4"
+                      cachedName="IdPublisher"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPublisher]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdPublisher]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[IdPlatform]"
+                      cachedDataType="i4"
+                      cachedName="IdPlatform"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPlatform]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdPlatform]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].Columns[ETLExecution]"
+                      cachedDataType="i4"
+                      cachedName="ETLExecution"
+                      externalMetadataColumnId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[ETLExecution]"
+                      lineageId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada].Columns[ETLExecution]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[EtlLoad]"
+                      dataType="dbTimeStamp"
+                      name="EtlLoad" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalSales]"
+                      dataType="numeric"
+                      name="TotalSales"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[RemainingSales]"
+                      dataType="numeric"
+                      name="RemainingSales"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[YearOfPublication]"
+                      dataType="i4"
+                      name="YearOfPublication" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesNorthAmerica]"
+                      dataType="numeric"
+                      name="SalesNorthAmerica"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesEurope]"
+                      dataType="numeric"
+                      name="SalesEurope"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[SalesJapan]"
+                      dataType="numeric"
+                      name="SalesJapan"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdVideoGame]"
+                      dataType="i4"
+                      name="IdVideoGame" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdGenre]"
+                      dataType="i4"
+                      name="IdGenre" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPublisher]"
+                      dataType="i4"
+                      name="IdPublisher" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPlatform]"
+                      dataType="i4"
+                      name="IdPlatform" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB].ExternalColumns[ETLExecution]"
+                      dataType="i4"
+                      name="ETLExecution" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load sales\Load_vg_sales_sales.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\Load_vg_sales_sales.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load sales\Load_vg_sales_sales.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\Load_vg_sales_sales.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load sales\Recuento de filas"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Recuento de filas;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Cuenta las filas a medida que pasan por un flujo de datos. Por ejemplo, se usa el número de filas procesadas para determinar si deben o no realizarse operaciones de limpieza o actualizar el texto de un mensaje de correo electrónico para comunicar el estado de procesamiento."
+              name="Recuento de filas">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el recuento de filas."
+                  name="VariableName">User::ETLCountRows</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load sales\Recuento de filas.Inputs[Entrada de Recuento de filas 1]"
+                  hasSideEffects="true"
+                  name="Entrada de Recuento de filas 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load sales\Recuento de filas.Outputs[Salida de Recuento de filas 1]"
+                  name="Salida de Recuento de filas 1"
+                  synchronousInputId="Package\Load sales\Recuento de filas.Inputs[Entrada de Recuento de filas 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load sales\vg_sales_sales"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="vg_sales_sales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load sales\vg_sales_sales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-85POON7.vg_sales]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-85POON7.vg_sales]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[TotalSales]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalSales]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[TotalSales]"
+                      name="TotalSales"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[RemainingSales]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[RemainingSales]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[RemainingSales]"
+                      name="RemainingSales"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[YearOfPublication]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[YearOfPublication]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[YearOfPublication]"
+                      name="YearOfPublication"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesNorthAmerica]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesNorthAmerica]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesNorthAmerica]"
+                      name="SalesNorthAmerica"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesEurope]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesEurope]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesEurope]"
+                      name="SalesEurope"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesJapan]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesJapan]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[SalesJapan]"
+                      name="SalesJapan"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdVideoGame]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdVideoGame]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdVideoGame]"
+                      name="IdVideoGame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdGenre]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdGenre]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdGenre]"
+                      name="IdGenre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdPublisher]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdPublisher]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdPublisher]"
+                      name="IdPublisher"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdPlatform]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdPlatform]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[IdPlatform]"
+                      name="IdPlatform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[Id]"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalSales]"
+                      dataType="numeric"
+                      name="TotalSales"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[RemainingSales]"
+                      dataType="numeric"
+                      name="RemainingSales"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[YearOfPublication]"
+                      dataType="i4"
+                      name="YearOfPublication" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesNorthAmerica]"
+                      dataType="numeric"
+                      name="SalesNorthAmerica"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesEurope]"
+                      dataType="numeric"
+                      name="SalesEurope"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesJapan]"
+                      dataType="numeric"
+                      name="SalesJapan"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdVideoGame]"
+                      dataType="i4"
+                      name="IdVideoGame" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdGenre]"
+                      dataType="i4"
+                      name="IdGenre" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdPublisher]"
+                      dataType="i4"
+                      name="IdPublisher" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[IdPlatform]"
+                      dataType="i4"
+                      name="IdPlatform" />
+                    <externalMetadataColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[TotalSales]"
+                      dataType="numeric"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[TotalSales]"
+                      name="TotalSales"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[RemainingSales]"
+                      dataType="numeric"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[RemainingSales]"
+                      name="RemainingSales"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[YearOfPublication]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[YearOfPublication]"
+                      name="YearOfPublication" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[SalesNorthAmerica]"
+                      dataType="numeric"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[SalesNorthAmerica]"
+                      name="SalesNorthAmerica"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[SalesEurope]"
+                      dataType="numeric"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[SalesEurope]"
+                      name="SalesEurope"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[SalesJapan]"
+                      dataType="numeric"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[SalesJapan]"
+                      name="SalesJapan"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdVideoGame]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdVideoGame]"
+                      name="IdVideoGame" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdGenre]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdGenre]"
+                      name="IdGenre" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdPublisher]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdPublisher]"
+                      name="IdPublisher" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdPlatform]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[IdPlatform]"
+                      name="IdPlatform" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load sales\vg_sales_sales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load sales.Paths[Salida de columna derivada]"
+              endId="Package\Load sales\Recuento de filas.Inputs[Entrada de Recuento de filas 1]"
+              name="Salida de columna derivada"
+              startId="Package\Load sales\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Load sales.Paths[Salida de origen de OLE DB]"
+              endId="Package\Load sales\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Load sales\vg_sales_sales.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Load sales.Paths[Salida de Recuento de filas 1]"
+              endId="Package\Load sales\Load_vg_sales_sales.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de Recuento de filas 1"
+              startId="Package\Load sales\Recuento de filas.Outputs[Salida de Recuento de filas 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{583F0FAD-7F44-4E22-951E-B0F4E18130C1}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="La propiedad de propagación del evento"
+          DTS:DTSID="{BDC5CC62-065A-44E9-9457-8E8DBBE397AB}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Load sales"
+          TopLeft="98.5,64.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load sales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Load sales\Recuento de filas"
+          TopLeft="285,95" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load sales\Columna derivada"
+          TopLeft="65,97" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load sales\vg_sales_sales"
+          TopLeft="65,16" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Load sales\Load_vg_sales_sales"
+          TopLeft="502,94" />
+        <EdgeLayout
+          Id="Package\Load sales.Paths[Salida de Recuento de filas 1]"
+          TopLeft="449,115.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,0"
+              Start="0,0"
+              End="45.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load sales.Paths[Salida de origen de OLE DB]"
+          TopLeft="145.5,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load sales.Paths[Salida de columna derivada]"
+          TopLeft="233,117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52,0"
+              Start="0,0"
+              End="44.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Load sales.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Load sales.EventHandlers[OnPreExecute]\get_id_vg_sales_metadata"
+          TopLeft="355,60" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Load sales.EventHandlers[OnPreExecute]\insert_vg_sales_metadata"
+          TopLeft="60,65" />
+        <EdgeLayout
+          Id="Package\Load sales.EventHandlers[OnPreExecute].PrecedenceConstraints[Restricción]"
+          TopLeft="267,83.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88,0"
+              Start="0,0"
+              End="80.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="80.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Load sales.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load sales.EventHandlers[OnPostExecute]\CountRow"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load sales\vg_sales_sales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load sales\Load_vg_sales_sales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
